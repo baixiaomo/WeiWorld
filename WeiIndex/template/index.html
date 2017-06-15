@@ -1,3 +1,4 @@
+{% load weiworldtags %}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -104,6 +105,7 @@
 				background: -moz-linear-gradient(top,  #575757,  #888);
 				filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#888888');
 			}
+
 		</style>
 	</head>
 	<body>
@@ -111,7 +113,13 @@
 	      <nav role="navigation">
 	        <ul>
 	        	<li class="github">
-	            	<a rel="external" href="https://github.com/webslides/webslides" title="Github">LOGIN</a>
+	            	<a rel="external"
+                       {% if indexModel %}
+                          href="{{ indexModel.loginUrl }}"
+                        {% else %}
+                       href="http://localhost:8000/admin"
+                       {% endif %}
+                    title="LOGIN">LOGIN</a>
 	          </li>
 	        </ul>
 	      </nav>
@@ -121,15 +129,31 @@
 			<section class="aligncenter">
 				<span id="section1"></span>
 				<div class="wrap">
-					<!--<h2>我的微世界</h2>-->
-					<h2><strong>我的微世界</strong></h2>
-					<!--<p class="text-intro">Search what you want in my world. <br>hyperlink collection and my compose.</p>-->
-					<p class="text-intro" style="color: grey;">百陌千寻  彼岸花开</p>
+					<h2><strong>
+                        {% if indexModel %}
+                            {{ indexModel.primary_title }}
+                        {% else %}
+                            我的微世界
+                        {% endif %}
+                    </strong></h2>
+					<p class="text-intro" style="color: grey;">
+                        {% if indexModel %}
+                            {{ indexModel.sub_title }}
+                        {% else %}
+                        百陌千寻  彼岸花开
+                        {% endif %}
+                    </p>
 					<p>
 						<input type="text"  style="width: 60%;border-color: gainsboro;height: 45px;" placeholder="press enter to search..."/>
 					</p>
 					<p>
-		              <a class="button zoomIn ga-track" href="https://github.com/webslides/webslides">进入世界</a>
+		              <a class="button zoomIn ga-track" href="https://github.com/webslides/webslides">
+                          {% if indexModel %}
+                            {{ indexModel.enter_button_text }}
+                          {% else %}
+                            进入世界
+                          {% endif %}
+                      </a>
 		           </p>
 				</div>
 			</section>
@@ -138,40 +162,59 @@
 				<span id="section2" class="background" ></span>
 				<div class="wrap">
 				<div class="alignleft size-50">
-					<h4><strong>常用链接</strong></h4>
+					<h4><strong>
+                        {% if indexModel %}
+                            {{ indexModel.primary_title2_left }}
+                        {% else %}
+                        常用链接
+                        {% endif %}
+                    </strong></h4>
 					<hr />
-					<a class="hyperlink white">aaa</a>
-					<a class="hyperlink white">aaa</a>
-					<a class="hyperlink white">aaa</a>
-					<a class="hyperlink white">aaa</a>
-					<a class="hyperlink white">aaabbbbwww</a>
-					<a class="hyperlink white">aaabbbb</a>
-					<a class="hyperlink white">aaabbbb</a>
-					<a class="hyperlink gray">aaabbbb</a>
-					<a class="hyperlink gray">aaabbbb</a>
-					<a class="hyperlink white">aaabbbbcccccccc</a>
-					<a class="hyperlink white">aaabbbb</a>
-					<a class="hyperlink white">aaabbbb</a>
-					<a class="hyperlink white">aaabbbb</a>
-
+                     {% for add in address %}
+                          <a class="linkbutton" href="{{ add.url }}" target="_blank">{{ add.name }}</a>&nbsp;|
+                     {% endfor %}
 				</div>
 	            <div class="alignright size-40 ">
-	              <p class="text-subtitle text-serif" style="color:grey">总有一些文字想要留下</p>
-	              <h3><strong>百小陌</strong></h3>
+	              <p class="text-subtitle text-serif" style="color:grey">
+                      {% if indexModel %}
+                            {{ indexModel.sub_title2 }}
+                      {% else %}
+                      总有一些文字想要留下
+                      {% endif %}
+                  </p>
+	              <h3><strong>
+                      {% if indexModel %}
+                            {{ indexModel.primary_title2_right }}
+                      {% else %}
+                        百小陌
+                      {% endif %}
+                  </strong></h3>
 	              <p style="color: rgb(14, 95, 95);">
-	              	<span>(七)践友<br>
-	              	此去经年隔山岳<br>
-	              	世事茫茫两不知<br>
-	              	若道时有长安信<br>
-	              	不负流年不负卿<br>
-	              	——wf.2015.05.31<br>
+	              	<ul style="text-align: left;list-style: none;">
+                        {% if indexModel.display_essay %}
+                            {% for poem in indexModel.display_essay.content|split:"," %}
+                                <li style="margin-left: 0.1em;">{{ poem }}</li>
+                            {% endfor %}
+                        {% else %}
+                            <li style="margin-left: 0.1em;">(七)践友</li>
+                            <li style="margin-left: 0.1em;">此去经年隔山岳</li>
+                            <li style="margin-left: 0.1em;">世事茫茫两不知</li>
+                            <li style="margin-left: 0.1em;">若道时有长安信</li>
+                            <li style="margin-left: 0.1em;">不负流年不负卿</li>
+                            <li style="margin-left: 0.1em;">——wf.2015.05.31</li>
+                        {% endif %}
+	              	</ul>
 	              </p>
-	              <a class="button zoomIn ga-track" href="#">关于我</a>
+	              <a class="button zoomIn ga-track" href="#">
+                      {% if indexModel %}
+                            {{ indexModel.about_button_text }}
+                      {% else %}
+                      关于我
+                      {% endif %}
+                  </a>
 	            </div>
 	          </div>
 			</section>
-			<!--slide three-->
-			
 		</article>
 		<script src="/static/webslides/js/webslides.js"></script>
 		<script type="text/javascript" src="/static/webslides/js/svg-icons.js" ></script>

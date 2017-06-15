@@ -20,3 +20,8 @@ class WeiDictionaryAdmin(admin.ModelAdmin):
 
 
 
+#跳转到index页面
+admin.site.site_url = '/weiworld/'
+
+
+

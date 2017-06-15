@@ -58,7 +58,10 @@ ROOT_URLCONF = 'WeiWorld.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'common-templates'),os.path.join(BASE_DIR,'WeiIndex/template'),],
+        'DIRS': [os.path.join(BASE_DIR,'common-templates'),
+                 os.path.join(BASE_DIR,'WeiIndex/template'),
+                 os.path.join(BASE_DIR,'upload'),
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

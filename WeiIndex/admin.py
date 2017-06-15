@@ -5,4 +5,5 @@ from WeiIndex.models import WeiIndexModel
 
 @admin.register(WeiIndexModel)
 class WeiIndexAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name','primary_title','sub_title','state']
+    list_editable = ['state']

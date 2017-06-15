@@ -11,6 +11,7 @@ class WeiAddressCollection(models.Model):
     type = models.IntegerField(default=0)#地址类型
     tags = models.CharField('地址标签',max_length=50,default='')
     state = models.CharField('状态',max_length=2,default='')
+    show_in_index = models.BooleanField('是否显示在index页面',default=False)
     creator = models.CharField('创建者',max_length=20,default='')
     updater = models.CharField('修改者',max_length=20,default='')
     createTime = models.DateTimeField('创建时间',auto_now=True)
@@ -44,6 +45,8 @@ class WeiEssay(models.Model):
     updater = models.CharField('修改者',max_length=20,default='')
     createTime = models.DateTimeField('创建时间',auto_now=True)
     updateTime = models.DateTimeField('更新时间',auto_now_add=True)
+    def __str__(self):
+        return self.name
 #数据字典模型
 class WeiDictionary(models.Model):
     type = models.CharField('字典大类',max_length=100)
