@@ -120,7 +120,10 @@
                        href="http://localhost:8000/admin"
                        {% endif %}
                     title="LOGIN">LOGIN</a>
-	          </li>
+	           </li>
+                <li class="github">
+                    <a rel="external" href="https://github.com/baixiaomo/WeiWorld" title="Github">Github</a>
+               </li>
 	        </ul>
 	      </nav>
 	    </header>
@@ -147,7 +150,7 @@
 						<input type="text"  style="width: 60%;border-color: gainsboro;height: 45px;" placeholder="press enter to search..."/>
 					</p>
 					<p>
-		              <a class="button zoomIn ga-track" href="https://github.com/webslides/webslides">
+		              <a class="button zoomIn ga-track" href="/weiworld/portal">
                           {% if indexModel %}
                             {{ indexModel.enter_button_text }}
                           {% else %}
@@ -205,7 +208,7 @@
                         {% endif %}
 	              	</ul>
 	              </p>
-	              <a class="button zoomIn ga-track" href="#">
+	              <a class="button zoomIn ga-track" href="/weiworld/about">
                       {% if indexModel %}
                             {{ indexModel.about_button_text }}
                       {% else %}

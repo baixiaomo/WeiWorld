@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'WeiIndex',
     'WeiModel',
+    'WeiPortal',
+    'WeiAbout',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,6 +63,9 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR,'common-templates'),
                  os.path.join(BASE_DIR,'WeiIndex/template'),
                  os.path.join(BASE_DIR,'upload'),
+                 os.path.join(BASE_DIR,'WeiModel/template'),
+                 os.path.join(BASE_DIR,'WeiPortal/template'),
+                 os.path.join(BASE_DIR,'WeiAbout/template'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -99,7 +104,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'  #设置时区
 
 USE_I18N = True
 
@@ -118,9 +123,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
   os.path.join(BASE_DIR,'common-static/'),
   os.path.join(BASE_DIR,'upload'),#上传文件存储目录
+  os.path.join(BASE_DIR,'WeiModel/static'),
 ]
 
-TEMPLATE_DIRS=[
-    os.path.join(BASE_DIR,'common-templates'),
-    os.path.join(BASE_DIR,'WeiIndex/template'),
-]
+# TEMPLATE_DIRS=[
+#     os.path.join(BASE_DIR,'common-templates'),
+#     os.path.join(BASE_DIR,'WeiIndex/template'),
+# ]

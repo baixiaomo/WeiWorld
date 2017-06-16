@@ -19,4 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^weiworld/',include('WeiIndex.urls')),
+    url(r'^weiworld/',include('WeiPortal.urls')),
+    url(r'^weiworld/',include('WeiAbout.urls')),
 ]

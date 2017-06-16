@@ -19,9 +19,15 @@ class WeiDictionaryAdmin(admin.ModelAdmin):
     list_display = ['id','type','type_desc','code','code_desc']
 
 
-
+#-----------------------------------站点基本设置
 #跳转到index页面
 admin.site.site_url = '/weiworld/'
+#登陆模板
+admin.site.login_template='admin/login.html'
+#后台header
+admin.site.site_header='微世界后台管理系统'
+#管理页面index
+admin.site.index_title='我的微世界'
 
 
 

@@ -13,3 +13,7 @@ def index(request):
     if queryset:
         indexModel = queryset[0]
     return render_to_response('index.html',context={'indexModel':indexModel,'address':address},context_instance=RequestContext(request))
+
+#首页
+def portal(request):
+    return render_to_response('',context={},context_instance=RequestContext(request))
