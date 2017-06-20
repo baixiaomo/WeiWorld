@@ -121,9 +121,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
+  os.path.join(BASE_DIR,'WeiModel/static/'),
+  os.path.join(BASE_DIR,'WeiAbout/static/'),
   os.path.join(BASE_DIR,'common-static/'),
-  os.path.join(BASE_DIR,'upload'),#上传文件存储目录
-  os.path.join(BASE_DIR,'WeiModel/static'),
+  os.path.join(BASE_DIR,'upload/'),#上传文件存储目录
+
 ]
 
 # TEMPLATE_DIRS=[
