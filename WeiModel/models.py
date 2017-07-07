@@ -57,4 +57,9 @@ class WeiDictionary(models.Model):
     modify_time = models.DateTimeField('字典修改时间',auto_now_add=True)
     creator = models.CharField('创建者',max_length=100)
     modifier = models.CharField('修改者',max_length=100,blank=True)
+    state = models.BooleanField('状态',default=True)
+
+    class Meta:
+        verbose_name = u'数据字典管理'
+        verbose_name_plural = u'数据字典管理'
 

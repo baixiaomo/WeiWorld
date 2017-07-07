@@ -16,7 +16,8 @@ class WeiFilesCollection(admin.ModelAdmin):
 
 @admin.register(WeiDictionary)
 class WeiDictionaryAdmin(admin.ModelAdmin):
-    list_display = ['id','type','type_desc','code','code_desc']
+    list_display = ['id','type','type_desc','code','code_desc','state']
+    list_editable = ['state']
 
 
 #-----------------------------------站点基本设置
